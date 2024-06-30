@@ -9,9 +9,15 @@ import ReactFlow, {
 
 import "reactflow/dist/style.css";
 import AddLeadSource from "./workflows/AddLeadSource";
+import LeadSource from "./workflows/LeadSource";
+import AddBlock from "./workflows/AddBlock";
+import SequenceStart from "./workflows/SequenceStart";
 
 const nodeTypes = {
   addLeadSource: AddLeadSource,
+  leadSource: LeadSource,
+  sequenceStart: SequenceStart,
+  addBlock: AddBlock,
 };
 
 const initialNodes = [
@@ -22,20 +28,24 @@ const initialNodes = [
       text: "Add Lead Source",
       description: "Click To Add Leads From List Of CRM",
     },
-    position: { x: 0, y: 0 },
+    position: { x: 400, y: 0 },
   },
   {
-    id: "12",
-    type: "addLeadSource",
+    id: "13",
+    type: "sequenceStart",
     data: {
-      text: "Add Lead Source",
-      description: "Click To Add Leads From List Of CRM",
+      label: "Sequence Start Piont",
     },
-    position: { x: 400, y: 0 },
+    position: { x: 70, y: 120 },
+  },
+  {
+    id: "14", // Add Block
+    type: "addBlock", // Add Block
+    position: { x: 120, y: 230 }, // Add Block
   },
 ];
 
-const initialEdges = [{ id: "e1-2", source: "1", target: "2" }];
+const initialEdges = [{ id: "e13-14", source: "13", target: "14" ,animated: true}];
 
 export default function App() {
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);

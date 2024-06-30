@@ -8,8 +8,8 @@ const AddLeadSource = ({ data: { text, description } }) => {
       <FaPlus size={20} />
       <h1 className="font-bold">{text}</h1>
       <p>{description}</p>
-      <Handle type="source" position={Position.Top}/>
-      <Handle type="target" position={Position.Bottom}/>
+      {/* <Handle type="source" position={Position.Top}/> */}
+      {/* <Handle type="target" position={Position.Bottom}/> */}
     </div>
   );
 };
